@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     //Properties
     public float moveSpeed = 50.0f;
     private CharacterController characterController;
+    public Rigidbody head;
 
 	// Use this for initialization
 	void Start () {
@@ -20,17 +21,23 @@ public class PlayerController : MonoBehaviour {
         // and also stops the character from going through walls/ obstecals
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         characterController.SimpleMove(moveDirection * moveSpeed);
-             
-        /* Manual way of doing momvemnt with RidgeBody using ChracterController component
-        Vector3 pos = transform.position; //current position of SpaceMarine in 3D Space (x, y, z)
-
-        // retrives values from the input + 1(right) or - 1(left) based on key press, then multipiles this value with the moveSpeed
-        // The Time.deltaTime takes into account the time passed in seconds from each frame, stopping the marine from going super fast
-        pos.x += moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime;
-        pos.z += moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime;
-
-        transform.position = pos; //update marine position with the new position (pos)
-        */
 		
 	}
+
+    void FixedUpdate() {
+        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //cal movement direction
+
+        // Moving the marine head when the marine actually moves
+        if (moveDirection == Vector3.zero)
+        {
+            // TODO
+            //marine standing still
+        }
+        else
+        {
+            head.AddForce(transform.right * 150, ForceMode.Acceleration);
+            //you apply force in a paticular direction which is multipled by a force amount
+
+        }
+    }
 }
