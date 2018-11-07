@@ -813,7 +813,7 @@ GameObject:
   - component: {fileID: 950445494}
   - component: {fileID: 950445495}
   - component: {fileID: 950445496}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SpaceMarine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
