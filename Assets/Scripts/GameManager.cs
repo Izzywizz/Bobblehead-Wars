@@ -66,6 +66,13 @@ public class GameManager : MonoBehaviour
                         GameObject newAlien = Instantiate(alien) as GameObject; //create an alien instance from a prefab, must be cast!
                         newAlien.transform.position = spawnLocation.transform.position; //This positions the alien at the spawn point
 
+                        //setting the alien a target
+                        Alien alienScript = newAlien.GetComponent<Alien>();
+                        alienScript.target = player.transform; //sets alien to target player
+                        //alien rotates towards player on y-axis (so that it doesn’t look upwards and stare straight ahead.)
+                        Vector3 targetRotation = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+                        newAlien.transform.LookAt(targetRotation);
+
                     }
                 }
             }
