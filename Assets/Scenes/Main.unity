@@ -880,6 +880,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1428c9996bc1941f5b192f672be39c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradePrefab: {fileID: 105092, guid: 941d6224549424c91b1cf112b44ec0cb, type: 2}
+  gun: {fileID: 1753970325}
+  upgradeMaxTimeSpawn: 7.5
   player: {fileID: 950445493}
   spawnPoints:
   - {fileID: 1328180158}
@@ -1336,6 +1339,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1401105778748710, guid: 8403139b3ae0d4a2397772a9e7fdecbd,
     type: 2}
   launchPositon: {fileID: 169468119}
+  isUpgraded: 0
+  upgradedTime: 10
 --- !u!95 &1753970326 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: 29f1c11a7ad41470b904e0d5f79eeca5,

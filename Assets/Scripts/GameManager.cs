@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    public GameObject upgradePrefab;
+    public Gun gun;
+    public float upgradeMaxTimeSpawn = 7.5f; //is the maximum time that will pass before the upgrade spawns.
     public GameObject player; //marine, helped to determine location
     public GameObject[] spawnPoints;
     public GameObject alien; //GameManager will create an instance of the alien prefab
@@ -16,17 +19,43 @@ public class GameManager : MonoBehaviour
     private int aliensOnScreen = 0;
     private float generatedSpawnTime = 0; //time between spawns
     private float currentSpawnTime = 0;
-
+    private bool spawnedUpgrade = false; //has the upgrade spawn yet, it can only spawn once
+    private float actualUpgradeTime = 0;
+    private float currentUpgradeTime = 0; //keep track of time until upgrade
     // Use this for initialization
     void Start()
     {
-
+        actualUpgradeTime = Random.Range(upgradeMaxTimeSpawn - 3.0f, upgradeMaxTimeSpawn);
+        actualUpgradeTime = Mathf.Abs(actualUpgradeTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentSpawnTime += Time.deltaTime; //Keeps track of time passed between each frame
+        currentUpgradeTime += Time.deltaTime; //Keeps track of time passed between each frame
+        currentSpawnTime += Time.deltaTime;
+        //1 - check if upgrade has spawned
+        if (currentUpgradeTime > actualUpgradeTime)
+        {
+            if (!spawnedUpgrade)
+            {
+                //2 - upgrade will spawn in alien spawnPoint
+                int randomNumber = Random.Range(0, spawnPoints.Length - 1);
+                GameObject spawnLocation = spawnPoints[randomNumber];
+                //3 - create an upgrade, grab the attached script, grab the gun instance then associate with our current gun, then postiion the upgrade
+                GameObject upgrade = Instantiate(upgradePrefab) as GameObject;
+                Upgrade upgradeScript = upgrade.GetComponent<Upgrade>();
+                upgradeScript.gun = gun;
+                upgrade.transform.position = spawnLocation.transform.position;
+                //4 - upgrade has ben spawned
+                spawnedUpgrade = true;
+
+                //play sound
+                SoundManager.Instance.PlayOneShot(SoundManager.Instance.powerUpAppear);
+            }
+        }
+
+
 
         if (currentSpawnTime > generatedSpawnTime) //when the time between spawns has been a while step in to the if which will handle spawntimes
         {

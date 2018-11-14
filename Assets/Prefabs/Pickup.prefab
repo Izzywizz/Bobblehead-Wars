@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 468766}
   - component: {fileID: 3397624}
   - component: {fileID: 2311056}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: white sphere.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,8 @@ GameObject:
   - component: {fileID: 474840}
   - component: {fileID: 11458982}
   - component: {fileID: 13615294}
-  m_Layer: 15
+  - component: {fileID: 114968569011708780}
+  m_Layer: 16
   m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +45,7 @@ GameObject:
   - component: {fileID: 409060}
   - component: {fileID: 3388296}
   - component: {fileID: 2365908}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: transp sphere.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +62,7 @@ GameObject:
   - component: {fileID: 430378}
   - component: {fileID: 3303636}
   - component: {fileID: 2352194}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: white sphere.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +79,7 @@ GameObject:
   - component: {fileID: 458588}
   - component: {fileID: 3333406}
   - component: {fileID: 2376534}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: transp sphere.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +96,7 @@ GameObject:
   - component: {fileID: 407918}
   - component: {fileID: 3367762}
   - component: {fileID: 2394746}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: transp sphere.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 406628}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +128,7 @@ GameObject:
   - component: {fileID: 465502}
   - component: {fileID: 3351122}
   - component: {fileID: 2372202}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: transp sphere.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 447558}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 487308}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +175,7 @@ GameObject:
   - component: {fileID: 406126}
   - component: {fileID: 3333236}
   - component: {fileID: 2340520}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: white sphere.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +192,7 @@ GameObject:
   - component: {fileID: 458502}
   - component: {fileID: 3397606}
   - component: {fileID: 2361160}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: transp sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +209,7 @@ GameObject:
   - component: {fileID: 402162}
   - component: {fileID: 3389960}
   - component: {fileID: 2313218}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: white sphere.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 407608}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +241,7 @@ GameObject:
   - component: {fileID: 415316}
   - component: {fileID: 3300114}
   - component: {fileID: 2367010}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: transp sphere.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +258,7 @@ GameObject:
   - component: {fileID: 492246}
   - component: {fileID: 3347146}
   - component: {fileID: 2336814}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: white sphere.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +275,7 @@ GameObject:
   - component: {fileID: 477956}
   - component: {fileID: 3377048}
   - component: {fileID: 2316150}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: white sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 457488}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Empty.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +307,7 @@ GameObject:
   - component: {fileID: 495042}
   - component: {fileID: 3391400}
   - component: {fileID: 2332528}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: transp sphere.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +324,7 @@ GameObject:
   - component: {fileID: 483450}
   - component: {fileID: 3362282}
   - component: {fileID: 2384496}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: transp sphere.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 442158}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431906}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Empty.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +371,7 @@ GameObject:
   - component: {fileID: 464652}
   - component: {fileID: 3302936}
   - component: {fileID: 2309116}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: white sphere.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +388,7 @@ GameObject:
   - component: {fileID: 415366}
   - component: {fileID: 3396678}
   - component: {fileID: 2382854}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: white sphere.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +405,7 @@ GameObject:
   - component: {fileID: 491584}
   - component: {fileID: 3304448}
   - component: {fileID: 2393978}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: white sphere.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +422,7 @@ GameObject:
   - component: {fileID: 481082}
   - component: {fileID: 3324506}
   - component: {fileID: 2351030}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: transp sphere.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1583,3 +1584,15 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105092}
   m_IsPrefabAsset: 1
+--- !u!114 &114968569011708780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421b93e24793b49f1bbf9570774ba864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 0}

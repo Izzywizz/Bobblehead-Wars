@@ -29,6 +29,11 @@ public class Gun : MonoBehaviour {
         if (Input.GetMouseButtonUp(0)) {
             CancelInvoke("fireBullet");//camcel method call thus stopping the firing of the bullet when the left mouse button is released
         }
+
+        currentTime += Time.deltaTime;
+        if ((currentTime > upgradedTime) && isUpgraded == true) {
+            isUpgraded = false;
+        }
     }
 
     //Methods

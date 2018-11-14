@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-guid: 1428c9996bc1941f5b192f672be39c83
+guid: 421b93e24793b49f1bbf9570774ba864
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - upgradePrefab: {instanceID: 0}
-  - gun: {instanceID: 0}
-  - player: {instanceID: 0}
-  - alien: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
