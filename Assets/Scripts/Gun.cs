@@ -6,6 +6,9 @@ public class Gun : MonoBehaviour {
 
     public GameObject bulletPrefab;
     public Transform launchPositon; //barrel of the marine gun
+    public bool isUpgraded; //tripple gun mode flag
+    public float upgradedTime = 10.0f; 
+    private float currentTime; // keeps track of how long it’s been since the gun was upgraded.
     private AudioSource audioSource;
 
 
@@ -30,15 +33,40 @@ public class Gun : MonoBehaviour {
 
     //Methods
     void fireBullet() {
-        // 1 - create a bullet prefab object
-        GameObject bullet = Instantiate(bulletPrefab) as GameObject;
-        // 2 - bullet prefab position is set to the laucher positionn
-        bullet.transform.position = launchPositon.position;
-        // 3 - WE can access the Rigdebody component bc its attached to the bullet/sphere prefab.
+
+        Rigidbody bullet = createBullet();
         // Direction is determined by the transform of the object to which this script is attached (space marine)
-        bullet.GetComponent<Rigidbody>().velocity = transform.parent.forward * 100;
+        bullet.velocity = transform.parent.forward * 100;
+
+        if (isUpgraded) {
+            Rigidbody bullet2 = createBullet();
+            bullet2.velocity = (transform.right + transform.forward / 0.5f) * 100; //fire a bullet right and then left(below)
+
+            Rigidbody bullet3 = createBullet();
+            bullet3.velocity = ((transform.right * -1) + transform.forward / 0.5f) * 100; //-1 used because there is no left property
+        }
 
         //sound fire
-        audioSource.PlayOneShot(SoundManager.Instance.gunFire); //playOneShot allows overlapping sound
+        if (isUpgraded) {
+            audioSource.PlayOneShot(SoundManager.Instance.upgradedGunFire);
+
+        } else {
+            audioSource.PlayOneShot(SoundManager.Instance.gunFire); //playOneShot allows overlapping sound
+        }
+    }
+
+    // 1 - create a bullet prefab object
+    // 2 - bullet prefab position is set to the laucher positionn
+    // 3 - WE can access the Rigdebody component bc its attached to the bullet/sphere prefab.
+    private Rigidbody createBullet() {
+        GameObject bullet = Instantiate(bulletPrefab) as GameObject;
+        bullet.transform.position = launchPositon.position;
+
+        return bullet.GetComponent<Rigidbody>();
+    }
+
+    public void UpgradedGun() {
+        isUpgraded = true;
+        currentTime = 0;
     }
 }
