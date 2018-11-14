@@ -6,10 +6,12 @@ public class Gun : MonoBehaviour {
 
     public GameObject bulletPrefab;
     public Transform launchPositon; //barrel of the marine gun
+    private AudioSource audioSource;
+
 
 	// Use this for initialization
 	void Start () {
-		
+        audioSource = GetComponent<AudioSource>(); //reference to attached audioSource
 	}
 	
 	// Update is called once per frame
@@ -35,5 +37,8 @@ public class Gun : MonoBehaviour {
         // 3 - WE can access the Rigdebody component bc its attached to the bullet/sphere prefab.
         // Direction is determined by the transform of the object to which this script is attached (space marine)
         bullet.GetComponent<Rigidbody>().velocity = transform.parent.forward * 100;
+
+        //sound fire
+        audioSource.PlayOneShot(SoundManager.Instance.gunFire); //playOneShot allows overlapping sound
     }
 }
