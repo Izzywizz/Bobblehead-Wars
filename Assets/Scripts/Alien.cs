@@ -32,6 +32,10 @@ public class Alien : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        //sound for alien death can't be attached to the alien bc when the object is destroyed there goes the audio for it
+        //instread we pass it to the gameManager to handle
+        SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDeath);
+
         //Remember, you set the alien’s Rigidbody to Is Kinematic, so the Rigidbody won't respond to collision events because the navigation system is in control.
         //That said, you can still be informed when a Rigidbody crosses a collider through trigger events. Thus destroying the alien obj
         Destroy(gameObject);

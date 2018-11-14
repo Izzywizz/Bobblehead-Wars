@@ -46,4 +46,9 @@ public class SoundManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    //wrapper call to playOneShot on the sound effect
+    public void PlayOneShot(AudioClip clip) {
+        soundEffectAudio.PlayOneShot(clip);
+    }
 }
