@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody head;
     public LayerMask layerMask; //what layer the ray (for raycasting) should hit
     public float moveSpeed = 50.0f;
+    public Animator bodyAnimator;
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero; //where the marine should look
 
@@ -31,12 +32,12 @@ public class PlayerController : MonoBehaviour {
 
         // Moving the marine head when the marine actually moves
         if (moveDirection == Vector3.zero) {
-            // TODO
-            //marine standing still
+            bodyAnimator.SetBool("IsMoving", false);
         }
         else {
             head.AddForce(transform.right * 150, ForceMode.Acceleration);
             //you apply force in a paticular direction which is multipled by a force amount
+            bodyAnimator.SetBool("IsMoving", true);
         }
 
         RaycastHit hit; //empty hit but will be filled with a hit when it does
