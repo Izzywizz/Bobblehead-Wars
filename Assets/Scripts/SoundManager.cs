@@ -19,10 +19,11 @@ public class SoundManager : MonoBehaviour {
     //access is needed throughtout the game for the sound manager
     public static SoundManager Instance = null;
     private AudioSource soundEffectAudio;
+    //soundEffectAudio refers to the audio source you added to the SoundManager earlier that will be used to play sound effects. 
+    //Since you won’t need to adjust the second audio source that plays background music in code, there’s no reason to create a reference for it.
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         //singleton pattern, only one copy of SoundManager should exist
         if (Instance == null)
@@ -38,6 +39,7 @@ public class SoundManager : MonoBehaviour {
 
             if (source.clip == null){//remember we've only set the background audio on one audio source, On the other AudioSource source.clip its null
                 soundEffectAudio = source;
+                //so this is the one we want to add the audi sources to
             }
         }
     }

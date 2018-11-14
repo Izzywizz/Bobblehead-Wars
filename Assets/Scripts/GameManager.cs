@@ -101,10 +101,17 @@ public class GameManager : MonoBehaviour
                         //alien rotates towards player on y-axis (so that it doesn’t look upwards and stare straight ahead.)
                         Vector3 targetRotation = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
                         newAlien.transform.LookAt(targetRotation);
+                        alienScript.OnDestroy.AddListener(AlienDestroyed); //Add listener onto the event and pass in the method to call whenever that event happens
+                        //everytime this event happens the gameManager knows of it and gets notification
 
                     }
                 }
             }
         }
+    }
+
+    public void AlienDestroyed() {
+        aliensOnScreen -= 1;
+        totalAliens -= 1;
     }
 }

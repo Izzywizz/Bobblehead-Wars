@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Alien : MonoBehaviour {
 
+    public UnityEvent OnDestroy;
     public Transform target;
     public float navigationUpdate; // the time, when the alien should update its path
     private float navigationTime = 0; //time since last path updated
@@ -38,7 +40,13 @@ public class Alien : MonoBehaviour {
 
         //Remember, you set the alien’s Rigidbody to Is Kinematic, so the Rigidbody won't respond to collision events because the navigation system is in control.
         //That said, you can still be informed when a Rigidbody crosses a collider through trigger events. Thus destroying the alien obj
-        Destroy(gameObject);
+        Die();
 
+    }
+
+    public void Die() {
+        OnDestroy.Invoke(); //generate the event, gameManager is listening for it and it notifies other listeners of the event
+        OnDestroy.RemoveAllListeners(); //prevent reference cycle memory leak
+        Destroy(gameObject);
     }
 }
