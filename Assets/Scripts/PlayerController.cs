@@ -5,10 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     //Properties
+    public float[] hitForce;
     public Rigidbody head;
     public LayerMask layerMask; //what layer the ray (for raycasting) should hit
     public float moveSpeed = 50.0f;
     public Animator bodyAnimator;
+    public float timeBetweenHits = 2.5f;
+    private bool isHit = false;
+    private float timeSinceHit = 0;
+    private int hitHumber = -1;
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero; //where the marine should look
 
@@ -24,8 +29,52 @@ public class PlayerController : MonoBehaviour {
         // and also stops the character from going through walls/ obstecals
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         characterController.SimpleMove(moveDirection * moveSpeed);
-		
-	}
+
+        //prefents the hero from being invicale after hit
+        if (isHit)
+        {
+            timeSinceHit += Time.deltaTime;
+            if (timeSinceHit > timeBetweenHits)
+            {
+                isHit = false;
+                timeSinceHit = 0;
+                /*This tabulates time since the last hit to the hero. If that time exceeds timeBetweenHits, the player can take more hits.
+                 */
+            }
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Alien alien = other.gameObject.GetComponent<Alien>();
+        if (alien != null)
+        {
+            //1 - First, you check if the colliding object has an Alien script attached to it.
+            // If it’s an alien and the player hasn’t been hit, then the player is officially considered hit.
+            if (!isHit)
+            {
+                hitHumber += 1; //2 - The hitNumber increases by one, after which you get a reference to CameraShake().
+                CameraShake cameraShake = Camera.main.GetComponent<CameraShake>();
+                //3 - If the current hitNumber is less than the number of force values for the camera shake, 
+                //then the hero is still alive. From there, you set force for the shaking effect and then shake the camera. 
+                //(You’ll come back to the death todo in a moment.)
+                if (hitHumber < hitForce.Length)
+                {
+                    cameraShake.intensity = hitForce[hitHumber];
+                    cameraShake.Shake();
+                }
+                else
+                {
+                    // death todo
+                }
+                isHit = true; //4 - This sets isHit to true, plays the grunt sound and kills the alien.
+                SoundManager.Instance.PlayOneShot(SoundManager.Instance.hurt);
+            }
+            alien.Die();
+        }
+    }
+
 
     void FixedUpdate() {
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //cal movement direction
