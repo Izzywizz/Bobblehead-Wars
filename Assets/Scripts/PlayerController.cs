@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     //Properties
+    public Rigidbody marineBody;
     public float[] hitForce;
     public Rigidbody head;
     public LayerMask layerMask; //what layer the ray (for raycasting) should hit
     public float moveSpeed = 50.0f;
     public Animator bodyAnimator;
     public float timeBetweenHits = 2.5f;
+    private bool isDead = false;
     private bool isHit = false;
     private float timeSinceHit = 0;
     private int hitHumber = -1;
@@ -45,6 +47,23 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    public void Die() 
+    {
+        bodyAnimator.SetBool("IsMoving", false);
+        marineBody.transform.parent = null;
+        marineBody.isKinematic = false;
+        marineBody.useGravity = true;
+        marineBody.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+        marineBody.gameObject.GetComponent<Gun>().enabled = false;
+
+        //dismemeberment
+        Destroy(head.gameObject.GetComponent<HingeJoint>());
+        head.transform.parent = null;
+        head.useGravity = true;
+        SoundManager.Instance.PlayOneShot(SoundManager.Instance.marineDeath);
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Alien alien = other.gameObject.GetComponent<Alien>();
@@ -66,7 +85,7 @@ public class PlayerController : MonoBehaviour {
                 }
                 else
                 {
-                    // death todo
+                    Die();
                 }
                 isHit = true; //4 - This sets isHit to true, plays the grunt sound and kills the alien.
                 SoundManager.Instance.PlayOneShot(SoundManager.Instance.hurt);

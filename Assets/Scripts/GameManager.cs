@@ -32,6 +32,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (player == null) //player's dead
+        {
+            return;
+        }
+
         currentUpgradeTime += Time.deltaTime; //Keeps track of time passed between each frame
         currentSpawnTime += Time.deltaTime;
         //1 - check if upgrade has spawned
