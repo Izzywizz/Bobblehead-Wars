@@ -13,9 +13,10 @@ public class Alien : MonoBehaviour {
     public float navigationUpdate; // the time, when the alien should update its path
     private float navigationTime = 0; //time since last path updated
     private NavMeshAgent agent;
+    private DeathParticles deathParticles;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         agent = GetComponent<NavMeshAgent>();
 	}
 	
@@ -57,6 +58,12 @@ public class Alien : MonoBehaviour {
 
     public void Die() {
 
+        if (deathParticles)
+        {
+            deathParticles.transform.parent = null;
+            deathParticles.Activate();
+        }
+
         isAlive = false;
         head.GetComponent<Animator>().enabled = false;
         head.isKinematic = false;
@@ -71,5 +78,14 @@ public class Alien : MonoBehaviour {
         head.GetComponent<SelfDestruct>().Inititate(); //gets the script/ component attached to the alien head and intiaites the public method which then 
         // within the SelfDestrcut script invokes the private self destructing method that gets rids of the head after 3 seconds.
         Destroy(gameObject);
+    }
+
+    public DeathParticles GetDeathParticles()
+    {
+        if (deathParticles == null)
+        {
+            deathParticles = GetComponentInChildren<DeathParticles>();
+        }
+        return deathParticles;
     }
 }

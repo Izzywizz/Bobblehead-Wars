@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    public GameObject deathFloor;
     public GameObject upgradePrefab;
     public Gun gun;
     public float upgradeMaxTimeSpawn = 7.5f; //is the maximum time that will pass before the upgrade spawns.
@@ -109,7 +110,7 @@ public class GameManager : MonoBehaviour
                         newAlien.transform.LookAt(targetRotation);
                         alienScript.OnDestroy.AddListener(AlienDestroyed); //Add listener onto the event and pass in the method to call whenever that event happens
                         //everytime this event happens the gameManager knows of it and gets notification
-
+                        alienScript.GetDeathParticles().SetDeathFloor(deathFloor);
                     }
                 }
             }
