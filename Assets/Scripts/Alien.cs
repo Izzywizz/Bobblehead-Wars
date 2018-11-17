@@ -68,6 +68,8 @@ public class Alien : MonoBehaviour {
         OnDestroy.Invoke(); //generate the event, gameManager is listening for it and it notifies other listeners of the event
         OnDestroy.RemoveAllListeners(); //prevent reference cycle memory leak
         SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDeath);
+        head.GetComponent<SelfDestruct>().Inititate(); //gets the script/ component attached to the alien head and intiaites the public method which then 
+        // within the SelfDestrcut script invokes the private self destructing method that gets rids of the head after 3 seconds.
         Destroy(gameObject);
     }
 }

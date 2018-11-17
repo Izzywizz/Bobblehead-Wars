@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 95658148120071056}
   - component: {fileID: 54973004369995462}
   - component: {fileID: 135189367790831724}
+  - component: {fileID: 114976903600122978}
   m_Layer: 9
   m_Name: BobbleEnemy-Head
   m_TagString: Untagged
@@ -1243,6 +1244,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114976903600122978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870499429688450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b6c38b0a40d420d9bedba30ba55665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114979749839612588
 MonoBehaviour:
   m_ObjectHideFlags: 1
