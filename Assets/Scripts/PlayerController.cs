@@ -18,10 +18,12 @@ public class PlayerController : MonoBehaviour {
     private int hitHumber = -1;
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero; //where the marine should look
+    private DeathParticles deathParticles;
 
 	// Use this for initialization
 	void Start () {
         characterController = GetComponent<CharacterController>(); //init and get a refereence to current component CharacterController attached to the GameObject
+        deathParticles = GetComponentInChildren<DeathParticles>();
     }
 	
 	// Update is called once per frame
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour {
         head.transform.parent = null;
         head.useGravity = true;
         SoundManager.Instance.PlayOneShot(SoundManager.Instance.marineDeath);
+        deathParticles.Activate();
         Destroy(gameObject);
     }
 
