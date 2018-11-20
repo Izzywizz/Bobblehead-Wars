@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    public Animator arenaAnimator;
     public GameObject deathFloor;
     public GameObject upgradePrefab;
     public Gun gun;
@@ -120,5 +120,16 @@ public class GameManager : MonoBehaviour
     public void AlienDestroyed() {
         aliensOnScreen -= 1;
         totalAliens -= 1;
+
+        if (totalAliens == 0)
+        {
+            Invoke("endGame", 2.0f);
+        }
+    }
+
+    public void endGame()
+    {
+        SoundManager.Instance.PlayOneShot(SoundManager.Instance.elevatorArrived);
+        arenaAnimator.SetTrigger("PlayerWon");
     }
 }
